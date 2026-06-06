@@ -4,7 +4,8 @@ def menu():
     print("2.View book")
     print("3.Search book")
     print("4.Delete book")
-    print("5.Exit")
+    print("5.Update book details")
+    print("6.Exit")
 
 def add_book(ids,name,author):
     bid=input("Enter book id:")
@@ -48,8 +49,37 @@ def delete_book(id,ids,name,author):
             
             return
     print("Book Not Exist")
-        
 
+def update_book(ids,name,author):
+    id=input("Enter Targeted Book ID :")
+    for i in range(len(ids)):
+        if id==ids[i]:
+            print("Update ID ,Name or Author")
+            ch=int(input("Enter For ID :1,Name:2,Author:3 = "))     
+            if ch==1:
+                nid=input("Enter new id :")
+                ids[i]=nid
+                print("Updated")
+                return
+                
+            elif ch==2:
+                nname=input("Enter New Name :")
+                name[i]=nname
+                print("Updated")
+                return
+                
+            elif ch==3:
+                nauthor=input("Enter new author :")
+                author[i]=nauthor
+                print("Updated")
+                return
+                
+            else:
+                print("Invalid Choice")
+                return 
+    print("Book Not Found")
+        
+      
 def main():
     ids=[]
     name=[]
@@ -76,9 +106,14 @@ def main():
                 continue
             id=input("Enter targeted Delete Book id :")
             delete_book(id,ids,name,author)
-
-
         elif ch==5:
+            if len(ids)<=0:
+                print("No Book Available , First add book")
+                continue
+            update_book(ids,name,author)
+
+
+        elif ch==6:
             print("Thank you")
             break
         
