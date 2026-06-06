@@ -6,7 +6,6 @@ def menu():
     print("4.Delete book")
     print("5.Update book details")
     print("6.Exit")
-
 def add_book(ids,name,author):
     bid=input("Enter book id:")
     bname=input("Enter book name:")
