@@ -3,8 +3,8 @@ def menu():
     print("1.Add book")
     print("2.View book")
     print("3.Search book")
-    # print("4.Delete book")
-    print("4.Exit")
+    print("4.Delete book")
+    print("5.Exit")
 
 def add_book(ids,name,author):
     bid=input("Enter book id:")
@@ -37,6 +37,17 @@ def search_book(ids,name,id):
             return
         
     print("Not Found")
+def delete_book(id,ids,name,author):
+    for i in range(len(ids)):
+        if id==ids[i]:
+            ids.pop(i)
+            #ids.pop(i)
+            name.pop(i)
+            author.pop(i)
+            print("Deleted Successfully")
+            
+            return
+    print("Book Not Exist")
         
 
 def main():
@@ -60,6 +71,14 @@ def main():
             id=input("Enter target Book id :")
             search_book(ids,name,id)
         elif ch==4:
+            if len(ids)<=0:
+                print("No book Available,First Add book")
+                continue
+            id=input("Enter targeted Delete Book id :")
+            delete_book(id,ids,name,author)
+
+
+        elif ch==5:
             print("Thank you")
             break
         
